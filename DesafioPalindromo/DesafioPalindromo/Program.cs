@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace DesafiosTecnicos
 {
@@ -7,37 +8,29 @@ namespace DesafiosTecnicos
         static void Main(string[] args)
         {
             bool continuar = true;
-
             while (continuar)
             {
                 Console.Clear();
                 Console.WriteLine("=== SELECIONE O DESAFIO ===");
                 Console.WriteLine("1 - Verificador de Palíndromo");
                 Console.WriteLine("2 - Sequência de Fibonacci");
+                Console.WriteLine("3 - Normalizador de Texto (Grito)");
                 Console.WriteLine("0 - Sair");
                 Console.Write("\nOpção: ");
 
                 string opcao = Console.ReadLine();
-
                 switch (opcao)
                 {
-                    case "1":
-                        ExecutarDesafioPalindromo();
-                        break;
-                    case "2":
-                        ExecutarDesafioFibonacci();
-                        break;
-                    case "0":
-                        continuar = false;
-                        break;
-                    default:
-                        Console.WriteLine("Opção inválida!");
-                        break;
+                    case "1": ExecutarDesafioPalindromo(); break;
+                    case "2": ExecutarDesafioFibonacci(); break;
+                    case "3": ExecutarDesafioNormalizador(); break;
+                    case "0": continuar = false; break;
+                    default: Console.WriteLine("Opção inválida!"); break;
                 }
 
                 if (continuar)
                 {
-                    Console.WriteLine("\nPressione qualquer tecla para voltar ao menu...");
+                    Console.WriteLine("\nPressione qualquer tecla para retornar...");
                     Console.ReadKey();
                 }
             }
@@ -103,5 +96,59 @@ namespace DesafiosTecnicos
             }
             Console.WriteLine();
         }
+
+        // --- DESAFIO 3: NORMALIZADOR DE TEXTO ---
+        static void ExecutarDesafioNormalizador()
+        {
+            Console.Clear();
+            Console.WriteLine("--- Normalizador de Texto ---");
+            Console.Write("Digite o texto 'gritado': ");
+            string entrada = Console.ReadLine();
+
+            string resultado = NormalizarGrito(entrada);
+            Console.WriteLine($"\nTexto Normalizado: {resultado}");
+        }
+
+        static string NormalizarGrito(string texto)
+        {
+            if (string.IsNullOrEmpty(texto)) return texto;
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < texto.Length; i++)
+            {
+                char atual = texto[i];
+
+                // Se não for pontuação repetida, adicionamos ao resultado
+                if (i > 0 && (atual == '!' || atual == '?'))
+                {
+                    char anterior = texto[i - 1];
+
+                    // Se o atual for igual ao anterior, ignoramos (ex: !! -> !)
+                    if (atual == anterior) continue;
+
+                    // Regra para tratar misturas como ?! ou !?
+                    // Se o anterior já for uma pontuação diferente, permitimos apenas um de cada
+                    if ((anterior == '!' && atual == '?') || (anterior == '?' && atual == '!'))
+                    {
+                        // Verificamos se já não adicionamos essa combinação antes
+                        // para evitar que "??!!??" vire "?!?"
+                        sb.Append(atual);
+                        continue;
+                    }
+                }
+
+                // Se for letra ou a primeira pontuação de um grupo, adiciona
+                if (i == 0 || !(atual == '!' || atual == '?') || texto[i] != texto[i - 1])
+                {
+                    // Pequeno ajuste para não repetir se cair na regra acima
+                    if (i > 0 && (texto[i] == '!' || texto[i] == '?') && texto[i] == texto[i - 1]) continue;
+                    sb.Append(atual);
+                }
+            }
+
+            return sb.ToString();
+        }
+
     }
 }
