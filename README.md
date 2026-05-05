@@ -1,32 +1,45 @@
-# Desafio Técnico: Verificador de Palíndromos
+# 🚀 Desafios de Lógica: Algoritmos com C#
 
-Este projeto é uma aplicação Console desenvolvida em **C# / .NET** que tem como objetivo identificar se uma string de entrada é um palíndromo.
+Este repositório contém a implementação de três desafios clássicos de lógica de programação, desenvolvidos em **C# (.NET 8)**. O objetivo deste projeto é demonstrar o domínio de fundamentos da computação, manipulação de strings e eficiência algorítmica.
 
-## 🚀 O Desafio
-O objetivo foi criar um algoritmo que verifique se uma palavra ou frase é igual quando lida de frente para trás e vice-versa, sem utilizar métodos prontos de manipulação de strings, como o `.Reverse()`.
+O projeto utiliza uma interface de menu interativo via Console para facilitar a navegação entre as soluções.
 
-## 🛠️ Solução e Decisões Técnicas
+---
 
-Para este desafio, utilizei a técnica de **Dois Ponteiros (Two Pointers)**, que é a abordagem mais eficiente em termos de performance ($O(n)$):
+## 🛠️ Desafios Implementados
 
-1.  **Normalização:** O código remove caracteres não alfanuméricos e converte o texto para letras minúsculas. Isso garante que frases como *"O lobo ama o bolo"* sejam identificadas corretamente, ignorando espaços e diferenciação entre maiúsculas/minúsculas.
-2.  **Lógica de Comparação:** Em vez de inverter a string (o que ocuparia o dobro de memória), o algoritmo utiliza dois marcadores: um no início e outro no fim, comparando os caracteres em direção ao centro.
-3.  **Eficiência:** O processo para assim que uma diferença é encontrada ou quando os ponteiros se cruzam, percorrendo no máximo metade da string.
+### 1. Verificador de Palíndromos
+*   **Objetivo:** Verificar se uma palavra ou frase é um palíndromo (lida da mesma forma de trás para frente).
+*   **Regra de Ouro:** Implementado sem o uso de métodos prontos como `.Reverse()`.
+*   **Técnica:** Utilização da abordagem de **Dois Ponteiros (Two Pointers)**, comparando as extremidades em direção ao centro para garantir performance $O(n)$ e economia de memória.
+*   **Diferencial:** Normalização manual para ignorar espaços e caracteres especiais.
 
-## 💻 Como executar
+### 2. Sequência de Fibonacci
+*   **Objetivo:** Gerar os primeiros $X$ elementos da sequência de Fibonacci, onde cada número é a soma dos dois anteriores.
+*   **Diferencial:** Implementação focada em evitar o uso desnecessário de coleções, utilizando apenas variáveis de estado para manter a sequência fluida e eficiente.
 
-1. Certifique-se de ter o **SDK do .NET** instalado.
+### 3. Normalizador de Texto ("Grito")
+*   **Objetivo:** Tratar strings com excesso de pontuações de exclamação e interrogação (ex: "Como é??????" -> "Como é?").
+*   **Técnica:** Utilização de `StringBuilder` para a reconstrução da string, garantindo que pontuações repetidas sejam reduzidas a um único caractere, enquanto combinações como `?!` sejam preservadas.
+*   **Foco Técnico:** Otimização de alocação de memória ao manipular strings mutáveis.
 
-2. Clone o repositório:
-   ```
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+---
+
+## 💻 Como Executar
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
 
 3. Navegue até a pasta do projeto e execute:
 ```
 dotnet run
 ```
 
-## 🛠️ Tecnologias
-- C#
-- .NET (Console Application)
-- Visual Studio 2022   
+---
+
+## 🧑‍💻 Autor
+
+**Herbert Paz Espindola**  
+*Junior Full Stack Developer*  
+Focado em tecnologias Microsoft (.NET, C#, SQL Server) e desenvolvimento de sistemas ERP.
