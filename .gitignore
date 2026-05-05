@@ -1,0 +1,11 @@
+## Visual Studio 2022
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.userosscache
+*.sln.docstates
+
+## Arquivos de SO
+.DS_Store
+Thumbs.db
