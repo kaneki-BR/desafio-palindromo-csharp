@@ -18,14 +18,13 @@ Para este desafio, utilizei a técnica de **Dois Ponteiros (Two Pointers)**, que
 1. Certifique-se de ter o **SDK do .NET** instalado.
 
 2. Clone o repositório:
-   ```bash
+   ```
    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
 
 3. Navegue até a pasta do projeto e execute:
-
-Bash
+```
 dotnet run
-
+```
 
 ## 🛠️ Tecnologias
 - C#
